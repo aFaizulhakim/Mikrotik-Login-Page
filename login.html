@@ -5,7 +5,7 @@
 <title>Login</title>
 <meta http-equiv="pragma" content="no-cache" />
 <meta http-equiv="expires" content="-1" />	
-<meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0; user-scalable=0;" />
+<meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0; user-scalable=0" />
 <link rel="stylesheet" href="login.css" media="screen">
  
 
@@ -19,7 +19,7 @@ $(if chap-id)
 		<input type="hidden" name="popup" value="true" />
 	</form>
 	
-	<script type="text/javascript" src="/md5.js"></script>
+	<script type="text/javascript" src="md5.js"></script>
 	<script type="text/javascript">
 	<!--
 	    function doLogin() {
@@ -37,28 +37,40 @@ $(endif)
 	$(if chap-id) onSubmit="return doLogin()" $(endif)>
 <input type="hidden" name="dst" value="$(link-orig)" />
 <input type="hidden" name="popup" value="true" />
-<div style="margin:0;padding:0;display:inline"></div>
-<center><p>$(if error)<span style="color: #FF8080; font-size: 16px">$(error)</span>$(endif)</p></center>
-<legend>
+<div style="margin:0;padding:50;display:inline"></div>
 
-Bienvenido a:
-<p><img class="logo" src="logo.png" width="250px" />
-<a href="$(link-login-only)?dst=$(link-orig-esc)&amp;username=T-$(mac-esc)"class="toform"><br> </a></p>
-</legend>
 <center>
-<p> <b>Gracias por visitarnos</b> </p>
-<div><p><small>Usted tendra internet gratuito con tiempo y recurrencia determinado por el administrador</small></p></div>
-
+    <div id="head">
+    <img id="logo" src="logo.png"/> </div>
+    <legend>
+    <p>Welcome Back  </p>
+    </legend>
+<div id="box">
+<div><input id="user" autocomplete="on" name="username" type="text" value="$(username)" placeholder="Username"/></div>
+<div><input id="pass" autocomplete="off" name="password" type="password" label="false" placeholder="Password"/></div>
+<div><input id="boton" name="submit" type="submit" value=" " /></div>
+</div>
 </center>
-</form>
+
+
+
+
 <div class='footer'>
-<center>
-<div id="ads"><img src="ads.png"/></div>
-</div></center>
+<p>$(if trial == 'yes')Free trial available, <a href="$(link-login-only)?dst=$(link-orig-esc)&amp;username=T-$(mac-esc)">click here</a>.$(endif)</p>
+<p>$(if error)<span style="color: #ffffff; font-size: 16px">$(error)</span>$(endif)</p>
+<br>
+<p>
+</p>
+</div>
+</form>
+
 <script type="text/javascript">
 <!--
   document.login.username.focus();
 //-->
+</script>
+<script type="text/javascript">
+document.oncontextmenu = function(){return false;}
 </script>
 </body>
 </html>
